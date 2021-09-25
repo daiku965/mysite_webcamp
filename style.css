@@ -340,8 +340,21 @@ li {
           justify-content: center;
 }
 
+@media screen and (max-width: 767px) {
+  .intro {
+    display: block;
+  }
+}
+
 .intro__icon-wrap {
   width: 512px;
+}
+
+@media screen and (max-width: 767px) {
+  .intro__icon-wrap {
+    width: auto;
+    padding-bottom: 20px;
+  }
 }
 
 .intro__icon {
@@ -355,14 +368,25 @@ li {
   text-align: left;
 }
 
+@media screen and (max-width: 767px) {
+  .intro__menu {
+    width: auto;
+    text-align: center;
+  }
+}
+
 .intro__heading {
-  padding-bottom: 5px;
+  margin-bottom: 5px;
   font-size: 20px;
 }
 
 .intro__text {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   font-size: 16px;
+}
+
+.intro__text--last {
+  margin-bottom: 0;
 }
 
 .contact {
