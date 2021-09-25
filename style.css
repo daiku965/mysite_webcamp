@@ -265,13 +265,33 @@ li {
   padding-top: 30px;
 }
 
+@media screen and (max-width: 767px) {
+  .strength {
+    display: block;
+  }
+}
+
 .strength__item {
   margin-right: 10px;
   width: 320px;
 }
 
+@media screen and (max-width: 767px) {
+  .strength__item {
+    margin: 0 auto;
+    padding-bottom: 10px;
+  }
+}
+
 .strength__item:last-child {
   margin-right: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .strength__item:last-child {
+    margin-right: auto;
+    padding-bottom: 0;
+  }
 }
 
 .strength__icon {
