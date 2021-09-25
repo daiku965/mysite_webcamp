@@ -13,6 +13,12 @@ li {
   list-style: none;
 }
 
+@media screen and (max-width: 767px) {
+  br {
+    display: none;
+  }
+}
+
 .global-container {
   margin: 0 auto;
   width: 1024px;
@@ -105,10 +111,22 @@ li {
   background-position: center;
 }
 
+@media screen and (max-width: 767px) {
+  .main-visual {
+    background-image: url(img/code.png);
+  }
+}
+
 .main-visual__heading {
   padding-bottom: 10px;
   font-size: 64px;
   color: #FAFAFA;
+}
+
+@media screen and (max-width: 767px) {
+  .main-visual__heading {
+    font-size: 40px;
+  }
 }
 
 .main-visual__subtitle {
@@ -116,16 +134,15 @@ li {
   color: #FAFAFA;
 }
 
+@media screen and (max-width: 767px) {
+  .main-visual__subtitle {
+    font-size: 18px;
+  }
+}
+
 .portfolio {
   padding: 90px 0;
   background-color: #ECEFF1;
-}
-
-.portfolio__container {
-  margin: 0 auto;
-  padding: 90px 0;
-  width: 920px;
-  text-align: center;
 }
 
 .portfolio__heading {
@@ -157,8 +174,15 @@ li {
           justify-content: center;
 }
 
+@media screen and (max-width: 767px) {
+  .product {
+    display: block;
+  }
+}
+
 .product__thumbnail {
-  margin: 0 10px 10px 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
   width: 300px;
   height: 250px;
   background-size: cover;
@@ -173,28 +197,40 @@ li {
   margin-bottom: 0;
 }
 
-.thumbnail-sketch {
+.thumbnail:nth-child(1) {
   background-image: url(img/sketch.jpg);
 }
 
-.thumbnail-websuku {
+.thumbnail:nth-child(2) {
   background-image: url(img/websuku.jpg);
 }
 
-.thumbnail-write {
+.thumbnail:nth-child(3) {
   background-image: url(img/write.jpg);
 }
 
-.thumbnail-webcamp {
+.thumbnail:nth-child(4) {
   background-image: url(img/webcamp.jpg);
 }
 
-.thumbnail-talk {
+.thumbnail:nth-child(5) {
   background-image: url(img/talk.jpg);
 }
 
-.thumbnail-webcamp-mother {
+.thumbnail:nth-child(6) {
   background-image: url(img/webcamp-mother.jpg);
+}
+
+@media screen and (max-width: 767px) {
+  .thumbnail:nth-child(2n+1) {
+    display: none;
+  }
+  .thumbnail:nth-child(2n) {
+    margin: 0 auto 10px;
+  }
+  .thumbnail:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .feature {
