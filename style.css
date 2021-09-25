@@ -420,9 +420,21 @@ li {
           justify-content: center;
 }
 
+@media screen and (max-width: 767px) {
+  .info {
+    display: block;
+  }
+}
+
 .info__item {
   width: 400px;
   text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .info__item {
+    width: auto;
+  }
 }
 
 .info__item-container {
@@ -431,12 +443,19 @@ li {
   text-align: left;
 }
 
+@media screen and (max-width: 767px) {
+  .info__item-container {
+    text-align: center;
+  }
+}
+
 .info__heading {
   padding-bottom: 5px;
   font-size: 20px;
 }
 
 .info__link {
+  display: inline-block;
   padding-bottom: 20px;
 }
 

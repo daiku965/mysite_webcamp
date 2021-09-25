@@ -1,0 +1,409 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, p {
+  color: #000000;
+}
+
+li {
+  list-style: none;
+}
+
+$main-color: #EC715F;
+$color-white: #FAFAFA;
+$color-gray: #ECEFF1;
+
+$breakpoints: (
+  'md': 'screen and (max-width: 767px)'
+) !default;
+
+@mixin mq($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+br {
+  @include mq() {
+    display: none;
+  }
+}
+
+.global-container {
+  margin: 0 auto;
+  width: 1024px;
+  text-align: center;
+  @include mq() {
+    width: 90%;
+  }
+}
+
+.header {
+  height: 70px;
+  background-color: $main-color;
+  @include mq() {
+    height: 50px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1024px;
+    @include mq() {
+      width: 90%;
+    }
+  }
+}
+
+.header-logo {
+  height: 70px;
+  @include mq() {
+    height: 50px;
+  }
+}
+
+.menu-box {
+  @include mq() {
+    margin: 5px 0;
+    padding: 5px 0;
+    width: 40px;
+    border: 2px solid;
+    border-color: $color-white;
+
+    &__line {
+      display: block;
+      margin: 5px auto;
+      width: 24px;
+      height: 2px;
+      background-color: $color-white;
+    }
+  }
+}
+
+.nav {
+  @include mq() {
+    display: none;
+  }
+}
+
+.nav-list {
+  line-height: 70px;
+
+  &__item {
+    display: inline-block;
+    padding: 0 30px;
+    font-size: 16px;
+    color: $color-white;
+  }
+}
+
+.main-visual {
+  padding-top: 200px;
+  height: 650px;
+  background-image: url(img/mv.png);
+  background-size: cover;
+  background-position: center;
+  @include mq() {
+    background-image: url(img/code.png);
+  }
+
+  &__heading {
+    padding-bottom: 10px;
+    font-size: 64px;
+    color: $color-white;
+    @include mq() {
+      font-size: 40px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    color: $color-white;
+    @include mq() {
+      font-size: 18px;
+    }
+  }
+}
+
+.portfolio {
+  padding: 90px 0;
+  background-color: $color-gray;
+
+  &__heading {
+    font-size: 32px;
+  }
+
+  &__heading::after {
+    content: "";
+    display: block;
+    margin: 8px auto 0;
+    width: 70px;
+    height: 3px;
+    background-color: $main-color;
+  }
+
+  &__text {
+    padding: 30px 0;
+    font-size: 16px;
+  }
+}
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include mq() {
+    display: block;
+  }
+
+  &__thumbnail {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__thumbnail:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  &__thumbnail:nth-last-child(-n+3) {
+    margin-bottom: 0;
+  }
+}
+
+$images: sketch, websuku, write, webcamp, talk, webcamp-mother;
+
+@each $image in $images {
+  $i: index($images, $image);
+  .thumbnail:nth-child(#{$i}) {
+    background-image: url(img/#{$image}.jpg);
+  }
+}
+
+@include mq() {
+  .thumbnail:nth-child(2n+1) {
+    display: none;
+  }
+
+  .thumbnail:nth-child(2n) {
+    margin: 0 auto 10px;
+  }
+
+  .thumbnail:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.feature {
+  padding: 90px 0;
+
+  &__heading {
+    font-size: 32px;
+  }
+
+  &__heading::after {
+    content: "";
+    display: block;
+    margin: 8px auto 0;
+    width: 70px;
+    height: 3px;
+    background-color: $main-color
+  }
+
+  &__text {
+    padding: 30px 0;
+    font-size: 16px;
+  }
+}
+
+.strength {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  @include mq() {
+    display: block;
+  }
+
+  &__item {
+    margin-right: 10px;
+    width: 320px;
+    @include mq() {
+      margin: 0 auto;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__item:last-child {
+    margin-right: 0;
+    @include mq() {
+      margin-right: auto;
+      padding-bottom: 0;
+    }
+  }
+
+  &__icon {
+    font-size: 60px;
+  }
+
+  &__heading {
+    padding: 10px 0;
+    font-size: 20px;
+  }
+
+  &__text {
+    text-align: left;
+    font-size: 16px;
+  }
+}
+
+.profile {
+  padding: 90px 0;
+  background-color: $color-gray;
+
+  &__heading {
+    font-size: 32px;
+  }
+
+  &__heading::after {
+    content: "";
+    display: block;
+    margin: 8px auto 0;
+    width: 70px;
+    height: 3px;
+    background-color: $main-color;
+  }
+
+  &__text {
+    padding: 30px 0;
+    font-size: 16px;
+  }
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  @include mq() {
+    display: block;
+  }
+
+  &__icon-wrap {
+    width: 512px;
+    @include mq() {
+      width: auto;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__icon {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+  }
+
+  &__menu {
+    width: 512px;
+    text-align: left;
+    @include mq() {
+      width: auto;
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    font-size: 16px;
+    &--last {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.contact {
+  padding: 90px 0;
+
+  &__heading {
+    font-size: 32px;
+  }
+
+  &__heading::after {
+    content: "";
+    display: block;
+    margin: 8px auto 0;
+    width: 70px;
+    height: 3px;
+    background-color: $main-color;
+  }
+
+  &__text {
+    padding: 30px 0;
+    font-size: 16px;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  @include mq() {
+    display: block;
+  }
+
+  &__item {
+    width: 400px;
+    text-align: center;
+    @include mq() {
+      width: auto;
+    }
+  }
+
+  &__item-container {
+    margin: 0 auto;
+    width: 190px;
+    text-align: left;
+    @include mq() {
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    padding-bottom: 5px;
+    font-size: 20px;
+  }
+
+  &__link {
+    display: inline-block;
+    padding-bottom: 20px;
+  }
+
+  &__icon {
+    margin-right: 20px;
+    font-size: 50px;
+  }
+
+  &__icon:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer {
+  height: 60px;
+  text-align: center;
+  background-color: $main-color;
+
+  &__copyright {
+    line-height: 60px;
+    font-size: 16px;
+    color: $color-white;
+  }
+}
